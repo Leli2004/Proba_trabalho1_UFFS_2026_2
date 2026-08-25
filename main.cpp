@@ -18,10 +18,21 @@ double combinacao(int n, int x) {
     return fatorial(n) / (fatorial(x) * fatorial(n - x)); // calcula C(n, x)
 }
 
-// Probabilidade Binomial Individual: P(x) = C(n,x) * p^x * q^(n-x)
+// Probabilidade Binomial Individual: P(X = x) = C(n,x) * p^x * q^(n-x)
 double probabilidadeBinomialIndividual(int n, int x, double p) {
     double q = 1.0 - p;
-    double probabilidade = (combinacao(n, x) * pow(p, x) * pow(q, n - x)) * 100.0; // Convertendo para porcentagem
+    double probabilidade = (combinacao(n, x) * pow(p, x) * pow(q, n - x)); 
+    return probabilidade;
+}
+
+// Probabilidade Binomial Acumulada: P(X <= x) = P(X = 0) + P(X = 1) + ... P(X = x)
+double probabilidadeBinomialAcumulada(int n, int x, double p) {
+    double probabilidade = 0.0;
+
+    for(int i = 0; i <= x; i++) {
+        probabilidade += probabilidadeBinomialIndividual(n, i, p);
+    }
+    
     return probabilidade;
 }
 
@@ -41,7 +52,7 @@ int validaInput(int n, int x, double p) {
     return 1; // Input válido
 }
 
-// g++ -o main main.cpp
+// g++ -Wall *.cpp -o main
 int main() {
     int n, x;
     double p;
@@ -61,10 +72,15 @@ int main() {
     }
 
     double prob = probabilidadeBinomialIndividual(n, x, p);
-    cout << fixed << setprecision(4);
+    double probAcumulada = probabilidadeBinomialAcumulada(n, x, p);
+
+    cout << fixed << setprecision(2);
 
     cout << "\nProbabilidade Binomial Individual:" << endl;
-    cout << "P (" << x << "): " << prob << " % \n" << endl;
+    cout << "P(X = " << x << "): " << prob *  100.0 << " % " << endl;
+
+    cout << "\nProbabilidade Binomial Acumulada:" << endl;
+    cout << "P(X <= " << x << "): " << probAcumulada * 100.0 << " % \n" << endl;
 
     cout << "*********************************************" << endl;
 
