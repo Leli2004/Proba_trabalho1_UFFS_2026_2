@@ -9,12 +9,17 @@
 | Danieli N. Dalla Vecchia | [@Leli2004](https://github.com/Leli2004) |
 | Maria A. Canal | [@marinacanal](https://github.com/marinacanal) |
 
-
 ---
 
 ## Trabalho 1 — Distribuição Binomial
 
 **Linguagem escolhida:** C++
+
+**Para executar, rodar no terminal:**
+
+```bash
+make run
+```
 
 Este trabalho consiste na implementação, em uma linguagem de programação de preferência, da fórmula da **distribuição binomial**:
 
