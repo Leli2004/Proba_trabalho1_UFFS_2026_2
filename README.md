@@ -7,7 +7,7 @@
 | Nome | GitHub |
 |------|--------|
 | Danieli N. Dalla Vecchia | [@Leli2004](https://github.com/Leli2004) |
-| Maria A. Canal | [@marinacanal](https://github.com/marinacanal) |
+| Marina de A. Canal | [@marinacanal](https://github.com/marinacanal) |
 
 ---
 
